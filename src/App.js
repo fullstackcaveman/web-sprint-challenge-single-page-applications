@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
-import HeroSection from './components/HeroSection';
 import HomePage from './components/HomePage';
 import NavBar from './components/NavBar';
-import PizzaForm from './components/PizzaForm';
-import Resturaunts from './components/Resturaunts';
+import Pizza from './components/Pizza';
 
 import './styles/styles.css';
 
@@ -13,7 +11,7 @@ const App = () => {
 		<>
 			<NavBar />
 			<Switch>
-				<Route path='/pizza' component={PizzaForm} />
+				<Route path='/pizza' component={Pizza} />
 				<Route exact path='/' component={HomePage} />
 			</Switch>
 		</>

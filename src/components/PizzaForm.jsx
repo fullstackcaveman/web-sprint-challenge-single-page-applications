@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 
-const PizzaForm = () => {
+const PizzaForm = (props) => {
+	const { values, submit, change, disabled, errors } = props;
+
 	const [price, setPrice] = useState('10');
 
 	const onChange = (e) => {
-		const { name, value } = e.target;
-	};
-
-	const onSubmit = (e) => {
-		e.preventDefault();
-		console.log('click');
+		const { name, value, type, checked } = e.target;
+		const valueToUse = type === 'checkbox' ? checked : value;
+		change(name, valueToUse);
 	};
 
 	return (
@@ -19,7 +18,7 @@ const PizzaForm = () => {
 					<h1>Create Your Masterpiece</h1>
 					<img src='../images/Pizza.jpg' alt='' />
 				</header>
-				<form onSubmit={onSubmit}>
+				<form onSubmit={submit}>
 					<div>
 						<h2>Build Your Pizza Below</h2>
 					</div>
@@ -30,13 +29,13 @@ const PizzaForm = () => {
 							<p>* Required</p>
 						</div>
 						<div className='size-input'>
-							<select name='pizza-size'>
-								<option value='select'>-- Please Select --</option>
+							<select onChange={onChange} value={values.size} name='size'>
+								<option value=''>-- Please Select --</option>
 								<option value='x-large'>X-Large</option>
 								<option value='large'>Large</option>
 								<option value='medium'>Medium</option>
 								<option value='small'>Small</option>
-								<option value='x-small'>X-Small</option>
+								<option value='personal'>Personal Size</option>
 							</select>
 						</div>
 					</div>
@@ -48,26 +47,50 @@ const PizzaForm = () => {
 						</div>
 						<div className='sauce-input'>
 							<div>
-								<label htmlFor='original-red'>
-									<input type='radio' name='original-red' />
+								<label>
+									<input
+										type='radio'
+										name='sauce'
+										value='originaRed'
+										onChange={onChange}
+										checked={values.sauce === 'originalRed'}
+									/>
 									Original Red
 								</label>
 							</div>
 							<div>
 								<label htmlFor='garlic-ranch'>
-									<input type='radio' name='garlic-ranch' />
+									<input
+										type='radio'
+										name='sauce'
+										value='garlicRanch'
+										onChange={onChange}
+										checked={values.sauce === 'garlicRanch'}
+									/>
 									Garlic Ranch
 								</label>
 							</div>
 							<div>
 								<label htmlFor='bbq-sauce'>
-									<input type='radio' name='bbq-sauce' />
+									<input
+										type='radio'
+										name='sauce'
+										value='bbqSauce'
+										onChange={onChange}
+										checked={values.sauce === 'bbqSauce'}
+									/>
 									BBQ Sauce
 								</label>
 							</div>
 							<div>
 								<label htmlFor='spinach-alfredo'>
-									<input type='radio' name='spinach-alfredo' />
+									<input
+										type='radio'
+										name='sauce'
+										value='spinachAlfredo'
+										onChange={onChange}
+										checked={values.sauce === 'spinachAlfredo'}
+									/>
 									Spinach Alfredo
 								</label>
 							</div>
@@ -85,43 +108,78 @@ const PizzaForm = () => {
 							<div className='left-column'>
 								<div className='pepperoni-check'>
 									<label htmlFor='pepperoni'>
-										<input type='checkbox' name='pepperoni' />
+										<input
+											type='checkbox'
+											name='pepperoni'
+											onChange={onChange}
+											checked={values.pepperoni}
+										/>
 										Pepperoni
 									</label>
 								</div>
 								<div className='sausage-check'>
 									<label htmlFor='sausage'>
-										<input type='checkbox' name='sausage' />
+										<input
+											type='checkbox'
+											name='sausage'
+											onChange={onChange}
+											checked={values.sausage}
+										/>
 										Sausage
 									</label>
 								</div>
 								<div className='canadian-bacon-check'>
-									<label htmlFor='canadian-bacon'>
-										<input type='checkbox' name='canadian-bacon' />
+									<label htmlFor='canadianBacon'>
+										<input
+											type='checkbox'
+											name='canadianBacon'
+											onChange={onChange}
+											checked={values.canadianbacon}
+										/>
 										Canadian Bacon
 									</label>
 								</div>
 								<div className='spicy-italian-check'>
-									<label htmlFor='spicy-italian'>
-										<input type='checkbox' name='spicy-italian' />
+									<label htmlFor='spicyItalian'>
+										<input
+											type='checkbox'
+											name='spicyItalian'
+											onChange={onChange}
+											checked={values.spicyItalian}
+										/>
 										Spicy Italian Sausage
 									</label>
 								</div>
 								<div className='grilled-chicken-check'>
-									<label htmlFor='grilled-chicken'>
-										<input type='checkbox' name='grilled-chicken' />
+									<label htmlFor='grilledChicken'>
+										<input
+											type='checkbox'
+											name='grilledChicken'
+											onChange={onChange}
+											checked={values.grilledChicken}
+										/>
 										Grilled Chicken
 									</label>
 								</div>
 								<div className='onions-check'>
 									<label htmlFor='onions'>
-										<input type='checkbox' name='onions' />
+										<input
+											type='checkbox'
+											name='onions'
+											onChange={onChange}
+											checked={values.onions}
+										/>
 										Onions
 									</label>
 								</div>
 								<div className='green-pepper-check'>
-									<label htmlFor='green-pepper'>
-										<input type='checkbox' name='green-pepper' />
+									<label htmlFor='greenPepper'>
+										<input
+											type='checkbox'
+											name='greenPepper'
+											onChange={onChange}
+											checked={values.greenPepper}
+										/>
 										Green Pepper
 									</label>
 								</div>
@@ -129,44 +187,79 @@ const PizzaForm = () => {
 							{/* Right Column */}
 							<div className='right-column'>
 								<div className='diced-tomatos-check'>
-									<label htmlFor='diced-tomatos'>
-										<input type='checkbox' name='diced-tomatos' />
+									<label htmlFor='dicedTomatos'>
+										<input
+											type='checkbox'
+											name='dicedTomatos'
+											onChange={onChange}
+											checked={values.dicedTomatos}
+										/>
 										Diced Tomatos
 									</label>
 								</div>
 								<div className='black-olives-check'>
-									<label htmlFor='black-olives'>
-										<input type='checkbox' name='black-olives' />
+									<label htmlFor='blackOlives'>
+										<input
+											type='checkbox'
+											name='blackOlives'
+											onChange={onChange}
+											checked={values.blackOlives}
+										/>
 										Black Olives
 									</label>
 								</div>
 								<div className='roasted-garlic-check'>
-									<label htmlFor='roasted-garlic'>
-										<input type='checkbox' name='roasted-garlic' />
+									<label htmlFor='roastedGarlic'>
+										<input
+											type='checkbox'
+											name='roastedGarlic'
+											onChange={onChange}
+											checked={values.roastedGarlic}
+										/>
 										Roasted Garlic
 									</label>
 								</div>
 								<div className='artichoke-hearts-check'>
-									<label htmlFor='artichoke-hearts'>
-										<input type='checkbox' name='artichoke-hearts' />
+									<label htmlFor='artichokeHearts'>
+										<input
+											type='checkbox'
+											name='artichokeHearts'
+											onChange={onChange}
+											checked={values.artichokeHearts}
+										/>
 										Artichoke Hearts
 									</label>
 								</div>
 								<div className='three-cheese-check'>
-									<label htmlFor='three-cheese'>
-										<input type='checkbox' name='three-cheese' />
+									<label htmlFor='threeCheese'>
+										<input
+											type='checkbox'
+											name='threeCheese'
+											onChange={onChange}
+											checked={values.threeCheese}
+										/>
 										Three Cheese
 									</label>
 								</div>
 								<div className='pineapple-check'>
 									<label htmlFor='pineapple'>
-										<input type='checkbox' name='pineapple' />
+										<input
+											type='checkbox'
+											name='pineapple'
+											onChange={onChange}
+											checked={values.pineapple}
+										/>
 										Pineapple
 									</label>
 								</div>
 								<div className='extra-cheese-check'>
-									<label htmlFor='extra-cheese'>
-										<input type='checkbox' name='extra-cheese' />
+									<label htmlFor='extraCheese'>
+										<input
+											type='checkbox'
+											name='extraCheese'
+											onChange={onChange}
+											checked={values.extraCheese}
+										/>
 										Extra Cheese
 									</label>
 								</div>
@@ -179,8 +272,13 @@ const PizzaForm = () => {
 							<h3>Choice of Substitute</h3>
 						</div>
 						<div className='substitute-options'>
-							<label htmlFor='gluten-free'>
-								<input type='checkbox' name='gluten-free' />
+							<label htmlFor='glutenFree'>
+								<input
+									type='checkbox'
+									name='glutenFree'
+									onChange={onChange}
+									checked={values.glutenFree}
+								/>
 								Gluten Free Crust (+ $1.00)
 							</label>
 						</div>
@@ -193,8 +291,9 @@ const PizzaForm = () => {
 						<div className='instructions-input'>
 							<input
 								type='text'
-								name='special-instructions'
+								name='instructions'
 								onChange={onChange}
+								value={values.instructions}
 							/>
 						</div>
 					</div>
@@ -203,7 +302,9 @@ const PizzaForm = () => {
 						<div className='quantity'>QUANTITY SELECTOR</div>
 						<div className='total'>
 							<div>
-								<button type='submit'>Add to Order</button>
+								<button type='submit' disabled={disabled}>
+									Add to Order
+								</button>
 							</div>
 						</div>
 					</div>
