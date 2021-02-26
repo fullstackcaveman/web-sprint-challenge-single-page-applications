@@ -1,11 +1,24 @@
-import React from "react";
+import React from 'react';
+import { Link, Switch, Route } from 'react-router-dom';
+import HeroSection from './components/HeroSection';
+import HomePage from './components/HomePage';
+import NavBar from './components/NavBar';
+import PizzaForm from './components/PizzaForm';
+import Resturaunts from './components/Resturaunts';
+
+import './styles/styles.css';
 
 const App = () => {
-  return (
-    <>
-      <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
-    </>
-  );
+	return (
+		<>
+			<NavBar />
+
+			<Switch>
+				<Route exact path='/'>
+					<HomePage />
+				</Route>
+			</Switch>
+		</>
+	);
 };
 export default App;

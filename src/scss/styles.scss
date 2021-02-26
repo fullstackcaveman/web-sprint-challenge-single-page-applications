@@ -1,0 +1,10 @@
+@import 'reset';
+@import 'variables';
+
+#root {
+	font-family: $primary-font;
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+@import 'elements';
