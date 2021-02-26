@@ -5,9 +5,13 @@ import PizzaForm from './PizzaForm';
 const HeroSection = () => {
 	return (
 		<section className='hero-section'>
-			<div className='pizza-btn'>
+			<Link className='pizza-btn' to='/pizza'>
 				<button className='btn-secondary'>PIZZA?</button>
-			</div>
+			</Link>
+
+			<Switch>
+				<Route path='/pizza' component={PizzaForm} />
+			</Switch>
 		</section>
 	);
 };

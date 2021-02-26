@@ -5,6 +5,11 @@
 	font-family: $primary-font;
 	font-size: 62.5%;
 	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
 }
 
 @import 'elements';
+@import 'pizzaForm';

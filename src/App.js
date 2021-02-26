@@ -12,11 +12,9 @@ const App = () => {
 	return (
 		<>
 			<NavBar />
-
 			<Switch>
-				<Route exact path='/'>
-					<HomePage />
-				</Route>
+				<Route path='/pizza' component={PizzaForm} />
+				<Route exact path='/' component={HomePage} />
 			</Switch>
 		</>
 	);

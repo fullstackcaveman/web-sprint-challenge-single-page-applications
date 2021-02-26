@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Router } from 'react-router-dom';
+import HomePage from './HomePage';
 
 const NavBar = () => {
 	return (
@@ -11,8 +12,11 @@ const NavBar = () => {
 				<Link to='/'>
 					<button className='btn-primary'>Home</button>
 				</Link>
+
 				<a href='tel:(555)555-5555'>
-					<button className='btn-primary'>Call</button>
+					<button id='call' className='btn-primary'>
+						Call 555-5555
+					</button>
 				</a>
 			</div>
 		</nav>
