@@ -46,7 +46,7 @@ const Pizza = () => {
 
 	const postNewPizza = (newPizza) => {
 		axios
-			.post('https://reqres.in/', newPizza)
+			.post('https://reqres.in/api/pizza', newPizza)
 			.then((res) => {
 				setPizza([res.data, ...pizza]);
 			})
