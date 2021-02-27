@@ -217,12 +217,5 @@ button .btn-secondary {
   align-items: center;
   text-align: left;
 }
-.pizza-flex .calculator {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
 /*# sourceMappingURL=styles.css.map */

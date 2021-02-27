@@ -32,6 +32,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. In 1-2 sentences, explain what React's `useRouteMatch` hook is used for.
 2. How would you explain form validation to someone who has never programmed before?
+   Form validation makes sure that the user inputs match what
 3. In 1-2 sentences, define end to end testing.
 
 ## Instructions
@@ -50,11 +51,11 @@ Your finished project must include all of the following requirements:
 
 - [x] A homepage that has a "/" route and links to your form (button, nav bar, or any other type of link is acceptable)
 - [x] A form with a "/pizza" route
-- [ ] A name text input field
-- [ ] Validation for name - name must be at least 2 characters
-- [ ] A dropdown for pizza size
-- [ ] A checklist for toppings - at least 4 (hint: name each separately!)
-- [ ] Text input for special instructions
+- [x] A name text input field
+- [x] Validation for name - name must be at least 2 characters
+- [x] A dropdown for pizza size
+- [x] A checklist for toppings - at least 4 (hint: name each separately!)
+- [x] Text input for special instructions
 - [ ] An Add to Order button that submits form and returns a database record of name, size, toppings and special instructions
 
 #### Testing MVP
