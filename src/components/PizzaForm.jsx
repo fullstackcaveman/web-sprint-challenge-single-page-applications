@@ -33,7 +33,12 @@ const PizzaForm = (props) => {
 						</div>
 						<div className='size-input'>
 							<div className='error'>{errors.size}</div>
-							<select onChange={onChange} value={values.size} name='size'>
+							<select
+								className='dropdown'
+								onChange={onChange}
+								value={values.size}
+								name='size'
+							>
 								<option value=''>-- Please Select --</option>
 								<option value='x-large'>X-Large</option>
 								<option value='large'>Large</option>
